@@ -1,7 +1,7 @@
 {
     'variables': {
-        #'library': 'static_library',
-        'library' : 'shared_library',
+        'library': 'static_library',
+        #'library' : 'shared_library',
     },
     "targets": [
         {
@@ -10,13 +10,15 @@
             'dependencies': [
             ],
             'include_dirs':[
-                "src/include"
+                "src/include",
+                "src/src",
             ],
             "defines":[
             ],
             'direct_dependent_settings': {
                 'include_dirs': [
-                    "src/include"
+                    "src/include",
+                    "src/src",
                 ],
                 "defines":[
                 ],
@@ -115,7 +117,80 @@
                 "src/src/tag.cpp",
                 "src/src/tag.h",
                 "src/src/token.h",
+            ]
+        },
+        {
+            'target_name': 'yaml-cpp-test',
+            'type': 'executable',
+            'dependencies': [
+                'yaml-cpp'
+            ],
+            'include_dirs':[
+                "src/test/",
+                "src/include",
+                "src/test/gtest-1.8.0/googlemock",
+                "src/test/gtest-1.8.0/googlemock/include",
+                "src/test/gtest-1.8.0/googletest",
+                "src/test/gtest-1.8.0/googletest/include",
+            ],
+            "defines":[
+            ],
+            'direct_dependent_settings': {
+                'include_dirs': [
+                    "src/test/",
+                    "src/include",
+                    "src/test/gtest-1.8.0/googlemock",
+                    "src/test/gtest-1.8.0/googlemock/include",
+                    "src/test/gtest-1.8.0/googletest",
+                    "src/test/gtest-1.8.0/googletest/include",
+                ],
+                "defines":[
+                ],
+            },
+            'sources':[
+                "src/test/handler_test.h",
+                "src/test/integration/emitter_test.cpp",
+                "src/test/integration/encoding_test.cpp",
+                "src/test/integration/gen_emitter_test.cpp",
+                "src/test/integration/handler_spec_test.cpp",
+                "src/test/integration/handler_test.cpp",
+                "src/test/integration/load_node_test.cpp",
+                "src/test/integration/node_spec_test.cpp",
+                "src/test/main.cpp",
+                "src/test/mock_event_handler.h",
+                "src/test/node/node_test.cpp",
+                "src/test/ostream_wrapper_test.cpp",
+                "src/test/regex_test.cpp",
+                "src/test/specexamples.h",
 
+                "src/test/gtest-1.8.0/googlemock/include/gmock/gmock.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h.pump",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-matchers.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-port.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h.pump",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-internal-utils.h",
+                "src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-port.h",
+                "src/test/gtest-1.8.0/googlemock/src/gmock-all.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock-cardinalities.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock-internal-utils.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock-matchers.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock-spec-builders.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock.cc",
+                #"src/test/gtest-1.8.0/googlemock/src/gmock_main.cc",
+
+                "src/test/gtest-1.8.0/googletest/include/gtest/gtest.h",
+                "src/test/gtest-1.8.0/googletest/src/gtest-all.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-death-test.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-filepath.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-internal-inl.h",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-port.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-printers.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-test-part.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest-typed-test.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest.cc",
+                #"src/test/gtest-1.8.0/googletest/src/gtest_main.cc",
 
                 #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock-actions.h",
                 #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock-cardinalities.h",
@@ -131,22 +206,8 @@
                 #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock-more-actions.h",
                 #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock-more-matchers.h",
                 #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock-spec-builders.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/gmock.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h.pump",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-matchers.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/custom/gmock-port.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h.pump",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-internal-utils.h",
-                #"src/test/gtest-1.8.0/googlemock/include/gmock/internal/gmock-port.h",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock-all.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock-cardinalities.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock-internal-utils.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock-matchers.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock-spec-builders.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock.cc",
-                #"src/test/gtest-1.8.0/googlemock/src/gmock_main.cc",
+                
+
                 #"src/test/gtest-1.8.0/googlemock/test/gmock-actions_test.cc",
                 #"src/test/gtest-1.8.0/googlemock/test/gmock-cardinalities_test.cc",
                 #"src/test/gtest-1.8.0/googlemock/test/gmock-generated-actions_test.cc",
@@ -179,7 +240,7 @@
                 #"src/test/gtest-1.8.0/googletest/include/gtest/gtest-spi.h",
                 #"src/test/gtest-1.8.0/googletest/include/gtest/gtest-test-part.h",
                 #"src/test/gtest-1.8.0/googletest/include/gtest/gtest-typed-test.h",
-                #"src/test/gtest-1.8.0/googletest/include/gtest/gtest.h",
+                
                 #"src/test/gtest-1.8.0/googletest/include/gtest/gtest_pred_impl.h",
                 #"src/test/gtest-1.8.0/googletest/include/gtest/gtest_prod.h",
                 #"src/test/gtest-1.8.0/googletest/include/gtest/internal/custom/gtest-port.h",
@@ -218,16 +279,7 @@
                 #"src/test/gtest-1.8.0/googletest/samples/sample7_unittest.cc",
                 #"src/test/gtest-1.8.0/googletest/samples/sample8_unittest.cc",
                 #"src/test/gtest-1.8.0/googletest/samples/sample9_unittest.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-all.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-death-test.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-filepath.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-internal-inl.h",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-port.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-printers.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-test-part.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest-typed-test.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest.cc",
-                #"src/test/gtest-1.8.0/googletest/src/gtest_main.cc",
+               
                 #"src/test/gtest-1.8.0/googletest/test/gtest-death-test_ex_test.cc",
                 #"src/test/gtest-1.8.0/googletest/test/gtest-death-test_test.cc",
                 #"src/test/gtest-1.8.0/googletest/test/gtest-filepath_test.cc",
@@ -290,20 +342,7 @@
                 #"src/test/gtest-1.8.0/googletest/xcode/Samples/FrameworkSample/widget.cc",
                 #"src/test/gtest-1.8.0/googletest/xcode/Samples/FrameworkSample/widget.h",
                 #"src/test/gtest-1.8.0/googletest/xcode/Samples/FrameworkSample/widget_test.cc",
-                #"src/test/handler_test.h",
-                #"src/test/integration/emitter_test.cpp",
-                #"src/test/integration/encoding_test.cpp",
-                #"src/test/integration/gen_emitter_test.cpp",
-                #"src/test/integration/handler_spec_test.cpp",
-                #"src/test/integration/handler_test.cpp",
-                #"src/test/integration/load_node_test.cpp",
-                #"src/test/integration/node_spec_test.cpp",
-                #"src/test/main.cpp",
-                #"src/test/mock_event_handler.h",
-                #"src/test/node/node_test.cpp",
-                #"src/test/ostream_wrapper_test.cpp",
-                #"src/test/regex_test.cpp",
-                #"src/test/specexamples.h",
+             
                 #"src/util/api.cpp",
                 #"src/util/parse.cpp",
                 #"src/util/read.cpp",
